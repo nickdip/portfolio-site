@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/header';
+import Homepage from './components/homepage';
+import Projects from './components/projects';
+import Contact from './components/contact';
+import { Routes, Route } from "react-router-dom"
+import React, { useState } from 'react';
 
 function App() {
+
+  const [ homeClicks, setHomeClicks ] = useState(0);
+
   return (
+    <>
+    <Header />
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Routes>
+        <Route path="/" element={<Homepage homeClicks={homeClicks} setHomeClicks={setHomeClicks}></Homepage>} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+       </Routes>
     </div>
+    </>
   );
 }
 
