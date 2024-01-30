@@ -61,7 +61,8 @@ export default function Homepage({homeClicks, setHomeClicks}) {
                     {displayText(0, "Hi, I'm Nick")}
                 </div>
                 <div className="">
-                    {displayText(1, "I'm a London based, full-stack developer.")}
+                    I'm a London based, full-stack developer.
+                    {/* {displayText(1, "I'm a London based, full-stack developer.")} */}
                 </div>
             </div>  
         </div>

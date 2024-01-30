@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
+//TODO: Check how to access email address from emailjs
+
 export default function Email() {
 
     const form = useRef();

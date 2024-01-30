@@ -1,27 +1,29 @@
 import React from 'react'
-import ProjectPhotos from '../utils/ProjectPhotos'
+import { Link } from 'react-router-dom';
 
-export default function Projects() {
 
-  const projects = ProjectPhotos()
-
-  console.log(projects[0])
+export default function Projects({projects}) {
 
   return (
     <>
-        <div>Projects</div>
+    <div className="px-10">
         <table>
           <tbody>
             {projects.map((project) => (
               <tr key={project.id} >
-                <td>{project.name}</td>
-                <td><img className="h-50" src={project.img}/></td>
-                <td>{project.description}</td>
-                <td>{project.link}</td>
+                <div className="flex flex-col items-center p-5">
+                  <td><Link to={`/${project.id}`} className="font-bold underline">
+                      {project.name}
+                    </Link></td>
+                  <td><img className="w-40" src={project.img}/></td>
+                  <td>{project.description}</td>
+                  <td>{project.link}</td>
+                </div>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
     </>
 
   )

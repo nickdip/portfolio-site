@@ -22,6 +22,20 @@
   to { border-right-color: black; }
 }
 
+
+body {
+  color: white;
+}
+
+
+.dark {
+  background-color: #2f0d1d;
+}
+
+.light {
+  background-color: #9d886e;
+}
+
 .fade-in {
   animation: fadeIn 3s ease-in-out;
 }
