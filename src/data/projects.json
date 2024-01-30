@@ -1,0 +1,50 @@
+[
+    {
+        "id": "grotto",
+        "name": "GROTTO - Hackathon November 2023",
+        "description": "Two engineers and myself teamed up to build an application in 48 hours that analyses a letter written to Santa and suggests environmentally sustainable Christmas presents (Group Project using NextJS, React, TailwindCSS, Supabase and Node.js)",
+        "links": ""
+    },
+    {
+        "id": "shufl",
+        "name": "Shufl.fm",
+        "description": "A mobile application using machine-learning principles and test-driven-development (Jest/Supertest). We developed a regression model in Python to create our own neural network (no PyTorch!) to predict whether a user will like a song (Group project using Python, React-Native, PSQL and Node.js)",
+        "links": "",
+        "img": "shufl.jpg"
+    },
+    {
+        "id": "nicksnews",
+        "name": "Nicks News",
+        "description": "The frontend and backend for a news website featuring a REST API using TDD (React, PSQL, Node.js)",
+        "links": "",
+        "img": "../static/project-pics/nicks-news.jpg"
+    },
+    {
+        "id": "wordhunt",
+        "name": "Word Hunt",
+        "description": "A client-side word-hunt game in JavaScript developed using TDD (Jest) to practice algorithms such as depth-first search recursion and binary search. (Node.js)",
+        "links": "",
+        "img": ""
+    },
+    {
+        "id": "connect4",
+        "name": "Connect-4",
+        "description": "A web-based Connect-4 game that included a bespoke AI using game-theory principles, in order for users to play against the computer (Python, Flask, Ajax, JS)",
+        "links": "",
+        "img": "../static/project-pics/connect-4.png"
+    },
+    {
+        "id": "spellchecker",
+        "name": "Spell-Checker",
+        "description": "A program, written in C, that spell checks a file. This project included memory management and a personally designed hash table to reduce the running time (C). File available on request.",
+        "links": "",
+        "img": ""
+    },
+    {
+        "id": "analyser",
+        "name": "Data-Analyser",
+        "description": "A .NET Application built with TDD (xUnit) that analyses large data sets using multi-threading for optimised performance (C#) (work in progress)",
+        "links": "",
+        "img": ""
+    }
+]

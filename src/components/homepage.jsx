@@ -3,6 +3,8 @@ import React, { useState, useEffect} from 'react';
 import Typewriter from './typewriter';
 
 
+//TO DO: Remove third line animation
+
 export default function Homepage({homeClicks, setHomeClicks}) {
 
 
@@ -60,9 +62,6 @@ export default function Homepage({homeClicks, setHomeClicks}) {
                 </div>
                 <div className="">
                     {displayText(1, "I'm a London based, full-stack developer.")}
-                </div>
-                <div className="">
-                    {displayText(2, "I work with Node.js, React, Python, SQL and more! I'm currently learning C#")}
                 </div>
             </div>  
         </div>

@@ -5,7 +5,9 @@ export default function Email() {
 
     const form = useRef();
 
-    const blockSeconds = useRef(10000)
+    const blockSeconds = useRef(10000);
+
+    const blockMultipleSends = useRef(false);
 
     const [ displayMessageSent, setDisplayMessageSent ] = useState("");
 
@@ -25,7 +27,11 @@ export default function Email() {
     
             setTimeout(() => {
                 blockSeconds.current -= interval
-                blockSeconds.current  >= 0 ? blockSendTimer() : setBlockSend(false)
+                if (blockSeconds.current  >= 0) blockSendTimer()
+                else {
+                    setBlockSend(false)
+                    blockSeconds.current = 10000;
+                }
             }, interval)
     
         }
@@ -41,15 +47,20 @@ export default function Email() {
 
     const SendEmail = (e) => {
 
+
         e.preventDefault();
 
         if (!checkBlockSend()) {
             return
         }
 
+        blockMultipleSends.current = true;
+
         return emailjs.sendForm('service_qfcdgs4', 'template_aelxa6k', form.current, 'ghrTrfgaUaGYHHRnH')
          .then(() => {
             setDisplayMessageSent("Your message has been sent.");
+            setFormDetails({"name": "", "email": "", "message": ""});
+            blockMultipleSends.current = false;
             setBlockSend(true);
         })
          .catch((error) => {
@@ -63,6 +74,10 @@ export default function Email() {
     function checkBlockSend() {
         if (blockSend)  {
             setDisplayMessageSent("You must wait " + (blockSeconds.current / 1000) + " seconds before sending another message.");
+            return false
+        }
+        else if (blockMultipleSends.current) {
+            setDisplayMessageSent("Your message is being sent. Please wait.");
             return false
         }
         return true
