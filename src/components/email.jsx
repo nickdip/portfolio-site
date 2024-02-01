@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 //TODO: Check how to access email address from emailjs
+//TODO: Change images for light/dark mode
 
 export default function Email() {
 

@@ -7,7 +7,7 @@ export default function Contact() {
 
     return (
         <>
-        <div className="flex justify-center text-2xl mb-3">
+        <div className="pt-12 flex justify-center text-2xl mb-3">
         Find me on GitHub and LinkedIn!
         </div>
         <div className="flex flex-row justify-center">

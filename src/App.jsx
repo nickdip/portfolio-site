@@ -4,9 +4,11 @@ import Homepage from './components/homepage';
 import Projects from './components/projects';
 import Contact from './components/contact';
 import { Routes, Route } from "react-router-dom"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProjectPhotos from './utils/ProjectPhotos';
 import SingleProject from './components/SingleProject';
+
+//TODO: Save browser session for dark-light
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
   const [ projects, setProjects ] = useState(ProjectPhotos());
 
   const [darkMode, setDarkMode] = useState(true);
+
+  const projectsRef = useRef(null);
   
   useEffect(() => {
     const root = window.document.documentElement;
@@ -27,12 +31,13 @@ function App() {
     }
   }, [darkMode]);
 
+
   return (
-    <>
+    <div id="top">
     <Header darkMode={darkMode} setDarkMode={setDarkMode}/>
     <div className="App">
         <Routes>
-        <Route path="/" element={<Homepage homeClicks={homeClicks} setHomeClicks={setHomeClicks}></Homepage>} />
+        <Route path="/" element={<Homepage homeClicks={homeClicks} setHomeClicks={setHomeClicks} projects={projects}></Homepage>} />
         <Route path="/projects" element={<Projects projects={projects}/>} />
         <Route path="/contact" element={<Contact />} />
         {projects.map((project) => {
@@ -40,7 +45,7 @@ function App() {
         })}
        </Routes>
     </div>
-    </>
+    </div>
   );
 }
 

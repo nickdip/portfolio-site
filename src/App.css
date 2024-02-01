@@ -23,17 +23,18 @@
 }
 
 
-body {
-  color: white;
-}
-
-
 .dark {
   background-color: #2f0d1d;
+  color: white;
+  border-color:  #FAF9F6;
+  border-width: 0px;
 }
 
 .light {
-  background-color: #9d886e;
+  background-color: #FAF9F6;
+  color: black;
+  border-color: rgb(0 0 0);
+  border-width: 0px;
 }
 
 .fade-in {

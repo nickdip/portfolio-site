@@ -2,10 +2,11 @@
     {
         "id": "grotto",
         "name": "GROTTO - Hackathon November 2023",
-        "description": "Two engineers and myself teamed up to build an application in 48 hours that analyses a letter written to Santa and suggests environmentally sustainable Christmas presents (Group Project using NextJS, React, TailwindCSS, Supabase and Node.js)",
+        "description": "Two engineers and myself teamed up to build an application in 48 hours that analyses a letter written to Santa and suggests environmentally sustainable Christmas presents (Group Project)",
         "links": {
             "GitHub": "https://github.com/nickdip/Grotto"
-        }
+        },
+        "techstacks": ["NextJS", "React", "TailwindCSS", "Supabase", "Node.js"]
     },
     {
         "id": "shufl",
@@ -15,7 +16,8 @@
             "Presentation Video": "https://northcoders.com/project-phase/shufl.fm",
             "GitHub (Frontend)": "https://github.com/nickdip/SHUFFLE-FE",
             "GitHub (Backend)": "https://github.com/nickdip/SHUFFLE-BE"
-        }
+        },
+        "techstacks": ["React-Native", "Python", "Flask", "PostgreSQL", "Node.js", "CSS"]
     },
     {
         "id": "nicksnews",
@@ -25,7 +27,8 @@
             "Live Demo": "https://nicks-news.netlify.app/",
             "GitHub (Frontend)": "https://github.com/nickdip/nicks-news",
             "GitHub (Backend)": "https://github.com/nickdip/nc-news"
-        }
+        },
+        "techstacks": ["React", "PostgreSQL", "Node.js", "CSS"]
     },
     {
         "id": "wordhunt",
@@ -33,7 +36,8 @@
         "description": "A client-side word-hunt game in JavaScript developed using TDD (Jest) to practice algorithms such as depth-first search recursion and binary search. (Node.js)",
         "links": {
             "GitHub": "https://github.com/nickdip/WordHunt"
-        }
+        },
+        "techstacks": ["Node.js"]
     },
     {
         "id": "connect4",
@@ -42,12 +46,14 @@
         "links": {
             "Live Demo": "https://nickdiplos.pythonanywhere.com/",
             "GitHub": "https://github.com/nickdip/Connect-4"
-        }
+        },
+        "techstacks": ["Python", "Flask", "JavaScript", "HTML", "CSS"]
     },
     {
         "id": "spellchecker",
         "name": "Spell-Checker",
-        "description": "A program, written in C, that spell checks a file. This project included memory management and a personally designed hash table to reduce the running time (C). File available on request."
+        "description": "A program, written in C, that spell checks a file. This project included memory management and a personally designed hash table to reduce the running time (C).",
+        "techstacks": ["C"]
     },
     {
         "id": "analyser",
@@ -55,6 +61,7 @@
         "description": "A .NET Application built with TDD (xUnit) that analyses large data sets using multi-threading for optimised performance (C#) (work in progress)",
         "links": {
             "GitHub": "https://github.com/nickdip/DataAnalyser"
-        }
+        },
+        "techstacks": ["C#"]
     }
 ]

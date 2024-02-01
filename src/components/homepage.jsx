@@ -1,11 +1,12 @@
 import mePhoto from '../static/me-main.jpeg';
 import React, { useState, useEffect} from 'react';
 import Typewriter from './typewriter';
+import Projects from './projects';
 
 
 //TO DO: Remove third line animation
 
-export default function Homepage({homeClicks, setHomeClicks}) {
+export default function Homepage({homeClicks, setHomeClicks, projects}) {
 
 
     const [ animation, setAnimation ] = useState([true, false, false]);
@@ -50,9 +51,9 @@ export default function Homepage({homeClicks, setHomeClicks}) {
         }
         return <></>
     }
-
     return (
-        <div className="flex flex-col sm:flex-row flex-wrap p-10 justify-start items-center sm:items-start">
+        <div id="home">
+        <div className="flex flex-col mt-5 sm:flex-row flex-wrap p-10 justify-start items-center sm:items-start">
             <div className="flex-initial items-center w-2/5 max-h-full">
             <img class="object-contain" src={mePhoto} alt="logo" />
             </div>
@@ -61,10 +62,12 @@ export default function Homepage({homeClicks, setHomeClicks}) {
                     {displayText(0, "Hi, I'm Nick")}
                 </div>
                 <div className="">
-                    I'm a London based, full-stack developer.
+                    I'm a London based full Stack Developer.
                     {/* {displayText(1, "I'm a London based, full-stack developer.")} */}
                 </div>
             </div>  
+        </div>
+        <Projects projects={projects}></Projects>
         </div>
     )
 }
