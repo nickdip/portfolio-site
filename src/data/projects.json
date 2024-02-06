@@ -6,6 +6,8 @@
         "links": {
             "GitHub": "https://github.com/nickdip/Grotto"
         },
+        "imgDimensions": "",
+        "imgDimensionsThumbNail": "",
         "techstacks": ["NextJS", "React", "TailwindCSS", "Supabase", "Node.js"]
     },
     {
@@ -17,6 +19,8 @@
             "GitHub (Frontend)": "https://github.com/nickdip/SHUFFLE-FE",
             "GitHub (Backend)": "https://github.com/nickdip/SHUFFLE-BE"
         },
+        "imgDimensions": "",
+        "imgDimensionsThumbNail": "",
         "techstacks": ["React-Native", "Python", "Flask", "PostgreSQL", "Node.js", "CSS"]
     },
     {
@@ -28,6 +32,8 @@
             "GitHub (Frontend)": "https://github.com/nickdip/nicks-news",
             "GitHub (Backend)": "https://github.com/nickdip/nc-news"
         },
+        "imgDimensions": "max-w-40 h-50 sm:max-w-120 sm:h-100",
+        "imgDimensionsThumbNail": "max-w-90 h-40",
         "techstacks": ["React", "PostgreSQL", "Node.js", "CSS"]
     },
     {
@@ -37,6 +43,8 @@
         "links": {
             "GitHub": "https://github.com/nickdip/WordHunt"
         },
+        "imgDimensions": "max-w-40 h-20",
+        "imgDimensionsThumbNail": "max-w-90 h-40",
         "techstacks": ["Node.js"]
     },
     {
@@ -47,6 +55,8 @@
             "Live Demo": "https://nickdiplos.pythonanywhere.com/",
             "GitHub": "https://github.com/nickdip/Connect-4"
         },
+        "imgDimensions": "",
+        "imgDimensionsThumbNail": "",
         "techstacks": ["Python", "Flask", "JavaScript", "HTML", "CSS"]
     },
     {

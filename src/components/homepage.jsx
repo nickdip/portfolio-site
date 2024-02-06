@@ -2,6 +2,7 @@ import mePhoto from '../static/me-main.jpeg';
 import React, { useState, useEffect} from 'react';
 import Typewriter from './typewriter';
 import Projects from './projects';
+import Contact from './contact';
 
 
 //TO DO: Remove third line animation
@@ -10,6 +11,7 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
 
 
     const [ animation, setAnimation ] = useState([true, false, false]);
+
 
     useEffect(() => {
 
@@ -36,6 +38,7 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
         , 5000);
     }, [homeClicks])
 
+
     function displayText(line, text) {
 
         if (homeClicks > 1) {
@@ -53,11 +56,11 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
     }
     return (
         <div id="home">
-        <div className="flex flex-col mt-5 sm:flex-row flex-wrap p-10 justify-start items-center sm:items-start">
-            <div className="flex-initial items-center w-2/5 max-h-full">
+        <div className="flex mt-9 flex-col sm:flex-row flex-wrap p-10 justify-start items-center sm:items-start">
+            <div className="flex-initial items-center w-2/5 max-h-full sm:w-1/5">
             <img class="object-contain" src={mePhoto} alt="logo" />
             </div>
-            <div className="flex-1 p-5 text-3xl sm:text-5xl">
+            <div className="flex-1 p-5 text-3xl sm:text-6xl">
                 <div className="">
                     {displayText(0, "Hi, I'm Nick")}
                 </div>
@@ -68,6 +71,7 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
             </div>  
         </div>
         <Projects projects={projects}></Projects>
+        <Contact/>
         </div>
     )
 }

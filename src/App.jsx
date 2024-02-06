@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom"
 import React, { useState, useEffect, useRef } from 'react';
 import ProjectPhotos from './utils/ProjectPhotos';
 import SingleProject from './components/SingleProject';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 //TODO: Save browser session for dark-light
 
@@ -16,36 +17,33 @@ function App() {
 
   const [ projects, setProjects ] = useState(ProjectPhotos());
 
-  const [darkMode, setDarkMode] = useState(true);
+  const [ divScroll, setDivScroll ] = useState("");
 
-  const projectsRef = useRef(null);
+
+  if (divScroll) {
+      const element = document.getElementById(divScroll);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+  } 
   
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (darkMode) {
-      root.classList.add('dark');
-      root.classList.remove('light');
-    } else {
-      root.classList.remove('dark');
-      root.classList.add('light');
-    }
-  }, [darkMode]);
-
 
   return (
-    <div id="top">
-    <Header darkMode={darkMode} setDarkMode={setDarkMode}/>
-    <div className="App">
-        <Routes>
-        <Route path="/" element={<Homepage homeClicks={homeClicks} setHomeClicks={setHomeClicks} projects={projects}></Homepage>} />
-        <Route path="/projects" element={<Projects projects={projects}/>} />
-        <Route path="/contact" element={<Contact />} />
-        {projects.map((project) => {
-          return <Route path={`/${project.id}`} element={<SingleProject project={project} />} />
-        })}
-       </Routes>
-    </div>
-    </div>
+    <ThemeProvider>
+      <>
+      <Header setDivScroll={setDivScroll}/>
+      <div className="App">
+          <Routes>
+          <Route path="/" element={<Homepage homeClicks={homeClicks} setHomeClicks={setHomeClicks} projects={projects}></Homepage>} />
+          <Route path="/projects" element={<Projects projects={projects}/>} />
+          <Route path="/contact" element={<Contact />} />
+          {projects.map((project) => {
+            return <Route path={`/${project.id}`} element={<SingleProject project={project} setDivScroll={setDivScroll}/>} />
+          })}
+        </Routes>
+      </div>
+      </>
+    </ThemeProvider>
   );
 }
 

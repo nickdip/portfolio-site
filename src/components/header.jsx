@@ -1,37 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Projects from './projects';
 import ReactSwitch from 'react-switch'
+import { useTheme } from '../contexts/ThemeContext';
 
 
-export default function Header({darkMode, setDarkMode}) {
+export default function Header({setDivScroll}) {
 
+    const { darkMode, toggleDarkMode } = useTheme();
 
-    const handleChange = () => {
-        setDarkMode(!darkMode)
-    }
+    console.log("HI")
 
-    const scrollToDiv = (divId) => {
-        const element = document.getElementById(divId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      };
-
+    const headerBackground = darkMode ? "bg-darkBackground" : "bg-lightBackground";
 
 
     return (
         <div className="fixed top-0 left-0 right-0 z-50">
-        <div className="flex items-center justify-between pr-2">
+        <div className={`flex items-center justify-between pr-2 ${headerBackground} `}>
             <div className="flex sticky h-1/10 w-full z-10">
                 <div className="pr-5 pl-2 pt-5 text-xl">
-                    <Link to="#" onClick={() => scrollToDiv('top')}>Home</Link>
+                    <Link to="/" onClick={() => setDivScroll("top")}>Home</Link>
                 </div>
                 <div className="p-5 text-xl">
-                    <Link to="#" onClick={() => scrollToDiv('projects')}>Projects</Link>
+                    <Link to="/" onClick={()=> setDivScroll("projects")}>Projects</Link>
                 </div>
                 <div className="pl-5 pr-1 pt-5 text-xl">
-                    <Link to="/Contact">Contact</Link>
+                    <Link to="/" onClick={() => setDivScroll('contact')}>Contact</Link>
                 </div>
             </div>
             <div className="pr-2">
@@ -39,7 +32,7 @@ export default function Header({darkMode, setDarkMode}) {
             </div>
             <ReactSwitch
                 checked={darkMode}
-                onChange={handleChange}
+                onChange={toggleDarkMode}
                 uncheckedIcon={false}
                 checkedIcon={false}
                 width={56}

@@ -14,17 +14,16 @@ export default function Projects({projects}) {
           <table>
             <tbody>
               {projects.map((project) => (
-                <tr key={project.id} >
+                <tr id={project.id} key={project.id} >
                   <div className="flex flex-col items-center p-5 m-3 border-2 rounded-md">
-                    <td><Link to={`/${project.id}`} className="font-bold underline">
+                    <td><Link to={`/${project.id}`} className="text-2xl font-bold underline">
                         {project.name}
                       </Link></td>
                     <td>
-                      <img className="w-40 m-2" src={project.img}/>
+                      <img className={`m-2 ${project.imgDimensionsThumbNail}`} src={project.img}/>
                       </td>
                     <td>
-                      <div className="flex flex-row justify-center p-2">
-                        {console.log(project.techstacks)}
+                      <div className="flex flex-row flex-wrap justify-center p-2">
                         {project.techstacks.map((stack) => (
                           <img className="w-10 m-2" src={TechStackPhotos(stack)}/>
                         ))}
