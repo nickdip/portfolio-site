@@ -1,9 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import { useTheme } from '../contexts/ThemeContext';
 
 //TODO: Check how to access email address from emailjs
 
 export default function Email() {
+
+    const { darkMode } = useTheme();
 
     const form = useRef();
 
@@ -87,13 +90,13 @@ export default function Email() {
 
 
     return (
-        <div className="text-stone-800">
+        <div>
             <form className="flex flex-col items-center pt-5" ref={form} onSubmit={SendEmail}>
-            <input className="border-2 border-blue-500 rounded-md p-2 m-3" placeholder="Name" type="text" name="user_name" size="30" onChange={(e) => updateFormDetails(e, "name")} value={formDetails["name"]}/>
-            <input className="border-2 border-blue-500 rounded-md p-2 m-3" placeholder="Email" type="email" name="user_email" size="30" onChange={(e) => updateFormDetails(e, "email")} value={formDetails["email"]}/>
-            <textarea className="border-2 border-blue-500 rounded-md p-2 m-3"  placeholder="Write message here..." name="message" rows="10" cols="35" onChange={(e) => updateFormDetails(e, "message")} value={formDetails["message"]} />
-            <input className="border-2 border-blue-500 rounded-md p-2 m-3" type="submit" value="Send" />
+            <input className="border-2 border-blue-500 rounded-md p-2 m-3 text-stone-800" placeholder="Name" type="text" name="user_name" size="30" onChange={(e) => updateFormDetails(e, "name")} value={formDetails["name"]}/>
+            <input className="border-2 border-blue-500 rounded-md p-2 m-3 text-stone-800" placeholder="Email" type="email" name="user_email" size="30" onChange={(e) => updateFormDetails(e, "email")} value={formDetails["email"]}/>
+            <textarea className="border-2 border-blue-500 rounded-md p-2 m-3 text-stone-800"  placeholder="Write message here..." name="message" rows="10" cols="35" onChange={(e) => updateFormDetails(e, "message")} value={formDetails["message"]} />
             {displayMessageSent}
+            <input className="border-2 border-blue-500 rounded-md p-2 m-3" type="submit" value="Send" />
             </form>
         </div>
       );
