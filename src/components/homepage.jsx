@@ -62,10 +62,10 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
             </div>
             <div className="flex-1 p-5 text-3xl sm:text-6xl">
                 <div className="">
-                    {displayText(0, "Hi, I'm Nick")}
+                    {displayText(0, "Hi, I'm Nick.")}
                 </div>
                 <div className="">
-                    I'm a London based full Stack Developer.
+                    I'm a London based Full-Stack Developer.
                     {/* {displayText(1, "I'm a London based, full-stack developer.")} */}
                 </div>
             </div>  
