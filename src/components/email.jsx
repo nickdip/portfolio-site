@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 //TODO: Check how to access email address from emailjs
-//TODO: Change images for light/dark mode
 
 export default function Email() {
 
@@ -88,7 +87,7 @@ export default function Email() {
 
 
     return (
-        <div>
+        <div className="text-stone-800">
             <form className="flex flex-col items-center pt-5" ref={form} onSubmit={SendEmail}>
             <input className="border-2 border-blue-500 rounded-md p-2 m-3" placeholder="Name" type="text" name="user_name" size="30" onChange={(e) => updateFormDetails(e, "name")} value={formDetails["name"]}/>
             <input className="border-2 border-blue-500 rounded-md p-2 m-3" placeholder="Email" type="email" name="user_email" size="30" onChange={(e) => updateFormDetails(e, "email")} value={formDetails["email"]}/>
