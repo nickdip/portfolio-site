@@ -48,7 +48,7 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
         if (animation[line]) {
             return (
             <>
-                <Typewriter text={text} speed={80} />
+                <Typewriter text={text} speed={100} />
                 <br />
             </>)
         }

@@ -8,8 +8,6 @@ export default function Header({setDivScroll}) {
 
     const { darkMode, toggleDarkMode } = useTheme();
 
-    console.log("HI")
-
     const headerBackground = darkMode ? "bg-darkBackground" : "bg-lightBackground";
 
 
@@ -27,9 +25,7 @@ export default function Header({setDivScroll}) {
                     <Link to="/" onClick={() => setDivScroll('contact')}>Contact</Link>
                 </div>
             </div>
-            <div className="pr-2">
-                {darkMode ? <div className="flex text-xs">Dark</div> : <div className="text-xs">Light</div>}
-            </div>
+            <div className="flex items-center flex-col">
             <ReactSwitch
                 checked={darkMode}
                 onChange={toggleDarkMode}
@@ -37,6 +33,10 @@ export default function Header({setDivScroll}) {
                 checkedIcon={false}
                 width={56}
             />
+            <div className="pr-2">
+                {darkMode ? <div className="flex text-xs">Dark</div> : <div className="text-xs">Light</div>}
+            </div>
+            </div>
         </div>
       </div>
       

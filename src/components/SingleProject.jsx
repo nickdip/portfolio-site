@@ -38,7 +38,7 @@ export default function SingleProject({project, setDivScroll}) {
         <tr key={project.name}>
             <div className="flex flex-col sm:px-10">
                 <td>
-                <div  className="flex flex-row justify-center"> 
+                <div  className="flex flex-row justify-center flex-wrap"> 
                     <img className={`object-contain m-3 ${project.imgDimensions}`} src={project.img}/>
                     <div className={`grid grid-cols-2`}>
                         {project.techstacks.map((stack, index) => (
@@ -55,7 +55,7 @@ export default function SingleProject({project, setDivScroll}) {
                 <td className="flex flex-row justify-center">
                     {showLinks(project.links)}  
                 </td>
-                <td>{project.description}</td>
+                <td className="p-3">{project.description}</td>
             </div>
             </tr>
     </table>

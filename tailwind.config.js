@@ -7,6 +7,9 @@ module.exports = {
         darkBackground: "#2f0d1d",
         lightBackground: "#FAF9F6"
       },
+      fontFamily: {
+        monospace: ['Courier New', 'Courier', 'monospace'],
+      }
     },
   },
   plugins: [],
