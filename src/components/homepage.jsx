@@ -10,7 +10,7 @@ import Contact from './contact';
 export default function Homepage({homeClicks, setHomeClicks, projects}) {
 
 
-    const [ animation, setAnimation ] = useState([true, false, false]);
+    const [ animation, setAnimation ] = useState([false, false]);
 
 
     useEffect(() => {
@@ -26,16 +26,16 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
         }
 
         setTimeout(() => {
-            setAnimation([true, true, false]);
+            setAnimation([true, false]);
         }
         , 1500);
 
+
         setTimeout(() => {
-
-            setAnimation([true, true, true]);
-
+            setAnimation([true, true]);
         }
-        , 5000);
+        , 3000);
+
     }, [homeClicks])
 
 
@@ -48,7 +48,7 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
         if (animation[line]) {
             return (
             <>
-                <Typewriter text={text} speed={100} />
+                <Typewriter text={text} speed={50} />
                 <br />
             </>)
         }
@@ -65,8 +65,7 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
                     {displayText(0, "Hi, I'm Nick.")}
                 </div>
                 <div className="">
-                    I'm a London based Full-Stack Developer.
-                    {/* {displayText(1, "I'm a London based, full-stack developer.")} */}
+                    {displayText(1, "I'm a London based, full-stack developer.")}
                 </div>
             </div>  
         </div>

@@ -1,12 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import { useTheme } from '../contexts/ThemeContext';
-
-//TODO: Check how to access email address from emailjs
 
 export default function Email() {
-
-    const { darkMode } = useTheme();
 
     const form = useRef();
 
