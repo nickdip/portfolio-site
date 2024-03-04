@@ -9,7 +9,6 @@ import ProjectPhotos from './utils/ProjectPhotos';
 import SingleProject from './components/SingleProject';
 import { ThemeProvider } from './contexts/ThemeContext';
 
-//sort div scroll
 //make all images use image component or delete component
 //change icon
 
