@@ -58,7 +58,7 @@ export default function Homepage({homeClicks, setHomeClicks, projects}) {
         <div id="home">
         <div className="flex mt-9 flex-col sm:flex-row flex-wrap p-10 justify-start items-center sm:items-start">
             <div className="flex-initial items-center w-2/5 max-h-full sm:w-1/5">
-            <img class="object-contain" src={mePhoto} alt="logo" />
+            <img className="object-contain" src={mePhoto} alt="logo" />
             </div>
             <div className="flex-1 p-5 text-3xl sm:text-6xl">
                 <div className="">

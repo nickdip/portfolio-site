@@ -1,9 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import TechStackPhotos from '../utils/TechStackPhotos';
+import React, { useState, useEffect } from 'react';
+import ProjectListDesktop from './projectListDesktop';
+import ProjectListMobile from './projectListMobile';
+
+function useWindowSize() {
+  const [size, setSize] = useState(0);
+
+  useEffect(() => {
+    function updateSize() {
+      setSize(window.innerWidth);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  return size;
+}
 
 
-export default function Projects({projects}) {
+
+export default function Projects({projects, myRef}) {
+
+  let width = useWindowSize();
 
   if (!projects) return <></>
 
@@ -11,35 +29,8 @@ export default function Projects({projects}) {
     <div id="projects">
       <div className="py-12 px-10">
         <h1 className="flex justify-center text-3xl font-bold">Explore Projects</h1>
-          <table>
-            <tbody>
-              {projects.map((project) => (
-                <tr id={project.id} key={project.id} >
-                  <div className="flex flex-col items-center p-5 m-3 border-2 rounded-md">
-                    <td><Link to={`/${project.id}`} className="text-2xl font-bold underline">
-                        {project.name}
-                      </Link></td>
-                    <td>
-                      <img className={`m-2 ${project.imgDimensionsThumbNail}`} src={project.img}/>
-                      </td>
-                    <td>
-                      <div className="flex flex-row flex-wrap justify-center p-2">
-                        {project.techstacks.map((stack) => (
-                          <img className="w-10 m-2" src={TechStackPhotos(stack)}/>
-                        ))}
-                        </div>
-                    </td>
-                    <td>
-                      <div className="p-2">
-                        {project.description}
-                        </div>
-                    </td>
-                  </div>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {width > 768 ? <ProjectListDesktop projects={projects} myRef={myRef}/> : <ProjectListMobile projects={projects} myRef={myRef}/>}
+       </div>
     </div>
 
   )
