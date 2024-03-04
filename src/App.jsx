@@ -9,7 +9,9 @@ import ProjectPhotos from './utils/ProjectPhotos';
 import SingleProject from './components/SingleProject';
 import { ThemeProvider } from './contexts/ThemeContext';
 
-//TODO: Save browser session for dark-light
+//sort div scroll
+//make all images use image component or delete component
+//change icon
 
 function App() {
 
@@ -19,14 +21,19 @@ function App() {
 
   const [ divScroll, setDivScroll ] = useState("");
 
+  useEffect(() => {
 
-  if (divScroll) {
-      const element = document.getElementById(divScroll);
+    if (divScroll) {
+      const element = document.getElementById(divScroll)
+      const yOffset = -90;
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
       }
-  } 
-  
+    }
+
+  })
+
 
   return (
     <ThemeProvider>
@@ -37,8 +44,8 @@ function App() {
           <Route path="/" element={<Homepage homeClicks={homeClicks} setHomeClicks={setHomeClicks} projects={projects}></Homepage>} />
           <Route path="/projects" element={<Projects projects={projects}/>} />
           <Route path="/contact" element={<Contact />} />
-          {projects.map((project) => {
-            return <Route path={`/${project.id}`} element={<SingleProject project={project} setDivScroll={setDivScroll}/>} />
+          {projects.map((project, index) => {
+            return <Route key={index}path={`/${project.id}`} element={<SingleProject project={project} setDivScroll={setDivScroll}/>} />
           })}
         </Routes>
       </div>

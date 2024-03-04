@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useSate, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TechStackPhotos from '../utils/TechStackPhotos'; 
+import projectDescriptions from '../data/ProjectDescriptions';
 
-// TODO: Change id for table row
-// TODO: Fix tech stacks on mobile
 export default function SingleProject({project, setDivScroll}) {
 
+    
+    useState(() => {
+        const element = document.getElementById("top")
+        element.scrollIntoView({ behavior: 'instant' });
+        }, [])
+
+
+    const descriptions = projectDescriptions();
 
     function showLinks(links) {
         if (!links) {
@@ -55,7 +62,7 @@ export default function SingleProject({project, setDivScroll}) {
                 <td className="flex flex-row justify-center">
                     {showLinks(project.links)}  
                 </td>
-                <td className="p-3">{project.description}</td>
+                <td className="p-3 whitespace-pre-wrap">{descriptions[project.id] || project.description}</td>
             </div>
             </tr>
     </table>

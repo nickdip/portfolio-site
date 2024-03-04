@@ -22,6 +22,10 @@
   to { border-right-color: black; }
 }
 
+p {
+  margin-bottom: 1rem;
+}
+
 .dark {
   background-color: #2f0d1d;
   color: white;
