@@ -49,9 +49,20 @@ function shufleDescription() {
 
 }
 
+function nicksNewsDescription() {
+    return (
+        <>
+          <p>Nicks News was my first full-stack project during Northcoders. I came into the bootcamp with some coding experience but I was exploring a lot of new tech stacks in this case - I had never built a server before nor had I created anything complex with React. </p>  
+          <p>I really enjoyed designing the backend for this application. We had learnt about the MVC design pattern before, but this project really embedded how keeping code modularised helped with scalability. The code became particularly complex when considering the different queries a user could make to the database. I dealt with this by implementing two classes [ {<a className="underline" href={"https://github.com/nickdip/nc-news/blob/main/models/queries/query.js"}>1</a>}, {<a className="underline" href={"https://github.com/nickdip/nc-news/blob/main/models/articles.models.js"}>2</a>} ] with methods that could be accessed for certain conditions (i.e ‘limit’ or ‘offset’). I had already started to see the benefits of Object-Oriented Programming with my Connect 4 project and this really drove me to delve deeper into OOP after the course. </p>
+          <p>I always thought I was a backend developer but I surprised myself with how much I enjoyed building the frontend. I started this course with the idea that ‘frontend’ meant being good at CSS and being able to create a responsive JavaScript button on your page, but I’ve realised it’s a lot more: you need a good understanding of how backend systems work, especially with integrating APIs. Frameworks like React also require a deep level of understanding and I had a fair amount of problem-solving when dealing with states. That said, I spent way too long on the CSS for this site - and I’ll be honest, I still don’t like how it looks. I definitely learnt to not underestimate CSS and I went back to basics after creating it to further my understanding of grid and flex. When I created the website you're on right now, I felt a lot more comfortable with CSS design.</p>
+        </>
+    )
+}
+
 export default function ProjectDescriptions() {
     return {
         "grotto": grottoDescription(),
-        "shufl": shufleDescription()
+        "shufl": shufleDescription(),
+        "nicksnews": nicksNewsDescription()
     }
 }
