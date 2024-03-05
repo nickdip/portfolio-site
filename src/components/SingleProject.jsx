@@ -62,7 +62,7 @@ export default function SingleProject({project, setDivScroll}) {
                 <td className="flex flex-row justify-center">
                     {showLinks(project.links)}  
                 </td>
-                <td className="p-3 whitespace-pre-wrap">{descriptions[project.id] || project.description}</td>
+                <td className="p-3 mx-20 font-medium text-[17px] whitespace-pre-wrap">{descriptions[project.id] || project.description}</td>
             </div>
             </tr>
     </table>
