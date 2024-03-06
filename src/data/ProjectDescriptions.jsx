@@ -59,10 +59,48 @@ function nicksNewsDescription() {
     )
 }
 
+function wordHuntDescription() {
+
+    return (
+        <>
+        <section>
+            <p>This was a project I worked on in my spare time while completing Northcoders bootcamp. I was inspired by a similar game available to play on iMessage (called ‘Word Hunt’ on game pigeon). The idea is that a player is given a board with a 2D board, with tiles of letters, the player needs to link consecutive letters up to create valid words.</p>
+            <p>When playing this on my phone, I was pretty interested in how the underlying algorithm answered the following questions: how do we scan the board for all valid words? How do we check whether a board is valid? How do we check whether a word that a user guesses is ‘linked’ on the board?</p>
+        </section>
+        <section>
+            <h2 className="text-2xl my-2">Algorithm and Strategy</h2>
+            <p>For searching my board, I knew I needed a recursion strategy and decided to implement a type of backtracking. The code for searching the board is available here but I will go through the underlying logic.</p>
+            <p>Let’s imagine we have a 3x3 board made with the following array:</p>
+            <pre>[[“T”, “W”, “I”], 
+[“M”, “H”, “T”], 
+[“F”, “I”, “H”]]</pre>
+            <p>The player thinks the word ‘fit’ can be found on the board (and they would be correct). A player inputs the word and the search algorithm begins. We start with looking for the letter ‘f’ on the board:</p>
+            <ul className="list-disc">
+                <li className="my-2">Each cell on the board is a potential starting point for a search (the letter ‘f’ in this case).</li>
+                <li className="my-2">For each cell, I tried to build the target word by recursively exploring adjacent cells (horizontally, vertically, and diagonally) while maintaining a record of visited cells to avoid revisiting them (an array called ‘visited’).</li>
+                <li className="my-2">If a target letter is found, this is added to a variable ‘wordTrack’ that tracks what letters we currently have. So if we have found the letter “f” and “i” on the board, wordTrack = “fi”. Once wordTrack is equal to the target word, the process stops.</li>
+                <li className="my-2">This process continues until either the word is found, at which point true is returned, or all starting points and paths have been exhausted without finding the word, resulting in a false return value.</li>
+            </ul>
+        </section>
+        <section>
+            <h2 className="text-2xl my-2">Dictionary and Word Validation</h2>
+            <p>You might be asking now, what if they input “twi”, this ‘word’ is on the board but it’s not a valid English word. This is where the dictionary comes in.</p>
+            <p>I decided to use a Scrabble dictionary (and Scrabble scoring) that was shared on another developers<a href="https://github.com/raun/Scrabble/blob/master/words.txt"> GitHub</a>. The question was then how to best store these words. I could use a server-side solution, but I was interested in keeping this as client-side. So how best to store and look up words quickly?</p>
+            <p>I did consider some different data structures, including a Trie, but figured this was an overkill and also generally a bad idea. I ended up finding an Object actually worked fine: For key values I used the first two letters of a word and then each corresponding value had an array of words with that prefix. I then used binary search to find the word in the array. This solution wasn’t perfect, it does create uneven-distribution of words, but I worked fine for this project.</p>
+            <p>The client side works currently but I would love to turn this into a web-based game and plan to do so. Whether I use a different implementation for the dictionary (such as a database) is something that I’m yet to decide.</p>
+        </section>
+        </>
+    )
+
+
+}
+
+
 export default function ProjectDescriptions() {
     return {
         "grotto": grottoDescription(),
         "shufl": shufleDescription(),
-        "nicksnews": nicksNewsDescription()
+        "nicksnews": nicksNewsDescription(),
+        "wordhunt": wordHuntDescription()
     }
 }
