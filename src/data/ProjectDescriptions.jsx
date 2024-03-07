@@ -95,12 +95,64 @@ function wordHuntDescription() {
 
 }
 
+function connect4Description() {
+    return (
+        <>
+        <section>
+        <h2 className="text-2xl my-2">Motivation</h2>
+        <p>
+            Connect-4 was my final project for Harvard CS50’s final course. I chose this because when I first played around with Python a few years prior, I started learning how to create a naughts and crosses game, which I then developed into a Connect-4 game as an extension. I had attempted to develop this into a version where you can play against a computer, but ended up lost in a mess of code and never managed to get it fully working. This was a good opportunity to try and get a working game and even develop it into a web app using Flask.
+        </p>
+    </section>
+
+    <section>
+        <h2 className="text-2xl my-2">Logic</h2>
+        <p>
+            One of the big breakthroughs with this project was coming to appreciate the use of classes and objects. I first considered a Connect 4 board to be a simple matrix, using a similar idea that we would use for naughts and crosses (an “X” or “O” for a player's counters). For example:
+            {`
+[
+  ["_", "_", "_", "_", "_", "_", "_"],
+  ["_", "_", "_", "_", "_", "_", "_"],
+  ["_", "_", "_", "X", "_", "_", "_"],
+  ["_", "_", "O", "X", "_", "_", "_"],
+  ["_", "X", "X", "O", "O", "_", "_"],
+  ["O", "X", "O", "X", "O", "X", "_"]
+]`}
+        </p>
+        <p>
+            This works great when playing against two human players but when it came to playing against a computer, I needed to consider a lot of information about a particular position. For each position, I wanted to consider the different ‘states’ that this would leave the board in (see here for more details). Creating a board class was a far more organised way of keeping track of all this board data.
+        </p>
+    </section>
+
+    <section>
+        <h2 className="text-2xl my-2">Using Game Theory</h2>
+        <p>
+            For the AI, I needed to calculate scores for a potential move. Suppose a computer is considering playing in column 1, I needed to consider the consequences of this. For instance, can player 1 (human) win on the next go? This would give player 1 a very high score and player 2 (the computer) a very slow score.
+        </p>
+        <p>
+            For anyone who isn’t aware, Connect 4 is a strongly solved strategy game. I wish I could say that the AI I built to play against a computer plays perfectly, but it does not. The issue was purely down to computational complexity; evaluating every possible move in an exponentially growing game-tree was not possible*.  I used my own version of minimax (<a href="https://en.wikipedia.org/wiki/Minimax">https://en.wikipedia.org/wiki/Minimax</a>) and alpha-beta pruning (<a href="https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning">https://en.wikipedia.org/wiki/Alpha–beta_pruning</a>) to calculate the best move for the computer, limited to only a few moves ahead.
+        </p>
+    </section>
+    <section>
+        <h2 className="text-2xl my-2">Reflection</h2>
+        <p>
+            As I write this, I have a lot more knowledge about coding. In a way, I should look back at this project with frustration: there is no testing, I did not use git or any form of version control and parts are overengineered to say the least. Knowing what regex was would have seriously helped with how I designed my AI logic - I effectively wrote functions to find match patterns within the code. However, I probably felt more satisfaction from completing this project than any other. It took a lot of headaches, and a few times to restart, but I managed to get this all working with very little guidance.
+        </p>
+        <p>
+            *While near the end of my project I did find a developer who has created a Connect 4 game where the computer plays perfectly using C++ (<a href="http://blog.gamesolver.org/solving-connect-four">link</a>). At one point I did consider re-evaluating my game to use his logic, as I believe the same principles should also work fine with Python. However, I did want to create the logic myself, even if it wasn’t perfect and this developer dealt with a lot of concepts, such as bitmaps, that I didn’t want to delve into at this point.
+        </p>
+    </section>
+        </>
+    )
+}
+
 
 export default function ProjectDescriptions() {
     return {
         "grotto": grottoDescription(),
         "shufl": shufleDescription(),
         "nicksnews": nicksNewsDescription(),
-        "wordhunt": wordHuntDescription()
+        "wordhunt": wordHuntDescription(),
+        "connect4": connect4Description()
     }
 }
