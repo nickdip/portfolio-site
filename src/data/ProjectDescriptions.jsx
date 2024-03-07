@@ -146,6 +146,18 @@ function connect4Description() {
     )
 }
 
+function spellCheckerDescription() {
+    return (
+        <>
+        <p>Speller required us to develop a program with C that was capable of efficiently spell-checking documents. The assignment’s focus was to implement five functions—load, hash, check, size, and unload and was a great way to learn more about data structures and algorithmic efficiency.
+        </p>
+        <p>
+The most interesting aspect of this task was to consider how to create a hash function to check for words. The project encouraged us to experiment with creating our own hash functions instead of relying on any well-known algorithm. I wanted one that was fast, and with that I wanted a fairly uniform distribution of words and a low collision rate. I developed a method that treated each character as a digit in a large prime base and computed the sum, multiplied by their respective powers of the base, modulo another prime number. I played around with several different prime numbers to find one that produced an efficient hash function. 
+</p>
+</>
+    )
+    }
+
 
 export default function ProjectDescriptions() {
     return {
@@ -153,6 +165,7 @@ export default function ProjectDescriptions() {
         "shufl": shufleDescription(),
         "nicksnews": nicksNewsDescription(),
         "wordhunt": wordHuntDescription(),
-        "connect4": connect4Description()
+        "connect4": connect4Description(),
+        "spellchecker": spellCheckerDescription()
     }
 }
